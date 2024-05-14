@@ -1,3 +1,4 @@
 Flask
 pyppeteer
 pandas
+MarkupSafe
