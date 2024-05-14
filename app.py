@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request, render_template
-from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
+
 import os
 
 from utils import allowed_file, convert_html_to_pdf, convert_doc_to_pdf
