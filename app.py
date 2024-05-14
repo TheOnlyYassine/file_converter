@@ -18,6 +18,8 @@ def index():
         return jsonify({"status": "failed", "message": "Something Went Wrong !!"})
 
 
+from flask import send_file
+
 @app.route('/upload', methods=['POST'])
 def file_converter():
     """
@@ -57,12 +59,17 @@ def file_converter():
                                 print("File Converted to PDF Successfully !!")
                             else:
                                 raise Exception('Something Went Wrong !')
-                        return jsonify({"status": "success", "message": "File Uploaded Successfully !!"})
+                        
+                        # Return the converted file to the user
+                        return send_file(pdf_file_path, as_attachment=True, attachment_filename=f"{extension[0]}.pdf")
 
                     else:
                         return jsonify({"status": "failed", "message": "Format Not Allowed !!"})
             else:
                 return jsonify({"status": "failed"})
+        except Exception as e:
+            return jsonify({"status": "failed", "message": str(e)})
+
         except Exception as e:
             print("Exception Occurred", e)
             return jsonify({"status": "exception", "message": "Something Went Wrong !!"})
