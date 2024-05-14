@@ -10,6 +10,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def index():
     """ Renders Index.html """
+    #cinve
     try:
         return render_template('index.html')
     except Exception as e:
