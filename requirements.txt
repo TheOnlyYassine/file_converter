@@ -15,7 +15,7 @@ Jinja2==2.10
 MarkupSafe==1.1.1
 pdfrw==0.4
 Pillow==5.0.0
-pkg-resources==0.0.0
+#pkg-resources==0.0.0
 pycparser==2.18
 Pyphen==0.9.4
 requests==2.18.4
